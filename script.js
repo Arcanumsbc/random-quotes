@@ -1,16 +1,60 @@
 const quotes = [
-  'The only way to do great work is to love what you do. - Steve Jobs',
-  'Innovation distinguishes between a leader and a follower. - Steve Jobs',
-  "Your time is limited, so don't waste it living someone else's life. - Steve Jobs",
+  {
+    quote: 'The only way to do great work is to love what you do.',
+    author: 'Steve Jobs',
+  },
+  {
+    quote: 'Innovation distinguishes between a leader and a follower.',
+    author: 'Steve Jobs',
+  },
+  {
+    quote: 'Your time is limited, so don\'t waste it living someone else\'s life.',
+    author: 'Steve Jobs',
+  },
+  {
+    quote: 'Success is not final, failure is not fatal: It is the courage to continue that counts.',
+    author: 'Winston Churchill',
+  },
+  {
+    quote: 'Be yourself; everyone else is already taken.',
+    author: 'Oscar Wilde',
+  },
+  {
+    quote: 'In the middle of difficulty lies opportunity.',
+    author: 'Albert Einstein',
+  },
+  {
+    quote: 'The best way to predict the future is to invent it.',
+    author: 'Alan Kay',
+  },
+  {
+    quote: 'I have not failed. I\'ve just found 10,000 ways that won\'t work.',
+    author: 'Thomas Edison',
+  },
+  {
+    quote: 'It does not matter how slowly you go as long as you do not stop.',
+    author: 'Confucius',
+  },
+  {
+    quote: 'The journey of a thousand miles begins with one step.',
+    author: 'Lao Tzu',
+  },
 ];
 
 const quoteElement = document.getElementById('quote');
+const quoteAuthorElement = document.getElementById('quote-author');
 const generateBtn = document.getElementById('generate-btn');
 
 function generateRandomQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[randomIndex];
-  quoteElement.textContent = randomQuote;
+  const { quote, author } = randomQuote // использован метод
+  // деструктуризации массива за место создания новых переменных
+  // const quote = randomQuote.quote;
+  // const quoteAuthor = randomQuote.author;
+
+  quoteElement.textContent = quote;
+  quoteAuthorElement.textContent = author;
 }
 
 generateBtn.addEventListener('click', generateRandomQuote);

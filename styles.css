@@ -1,24 +1,64 @@
+/* Общий стиль */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #121212; /* Тёмный фон */
+  color: #e0e0e0; /* Светлый текст */
+  margin: 0;
+  padding: 0;
 }
 
+/* Централизованный контейнер */
 .container {
   max-width: 600px;
   margin: 50px auto;
   text-align: center;
+  padding: 20px;
+  background-color: #1e1e1e; /* Чуть светлее основного фона */
+  border-radius: 12px; /* Закруглённые края */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Лёгкая тень */
 }
 
-button {
+/* Заголовок */
+h1 {
+  font-size: 2em;
+  color: #f0f0f0; /* Ещё светлее для акцента */
+  margin-bottom: 20px;
+}
+
+/* Текст цитаты */
+#quote {
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: #b3b3b3; /* Нейтральный оттенок для текста */
+  transition: opacity 0.3s ease; /* Плавное изменение */
+}
+
+/* Кнопка */
+.btn {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #bb86fc; /* Цвет кнопки в стиле тёмной темы */
+  color: #121212; /* Чёрный текст на светлой кнопке */
   border: none;
   cursor: pointer;
   border-radius: 10px;
+  transition: background-color 0.3s ease; /* Плавный переход цвета */
 }
 
-button:hover {
-  background-color: #0056b3;
+.btn:hover {
+  background-color: #9b67e1; /* Чуть темнее при наведении */
+}
+
+.quote {
+  font-style: italic;
+}
+
+.quote:before,
+.quote:after {
+  content: '"';
+}
+
+.quote-author {
+  display: block; /* Чтобы строка автора занимала отдельный блок */
+  margin-top: 10px; /* Увеличивает отступ сверху */
 }
