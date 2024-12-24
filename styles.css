@@ -85,3 +85,10 @@ h1 {
 .author {
   font-style: italic;
 }
+
+.star-icon {
+  font-size: 30px;
+  color: rgb(255, 255, 0);
+  cursor: pointer;
+  vertical-align: middle;
+}
