@@ -1,18 +1,18 @@
 import {currentQuote} from "../../index.js";
 
 const favoriteBtn = document.getElementById('favorite-btn');
-favoriteBtn.addEventListener('click', () => toggleFavorite(currentQuote));
 const favoritesContainer = document.getElementById('favorites-container');
+favoriteBtn.addEventListener('click', () => toggleFavorite(currentQuote, favoriteBtn, favoritesContainer));
 
 hideBtn(favoriteBtn);
 
-function toggleFavorite(quote) {
+function toggleFavorite(quote, btn, container) {
   quote.isFavorite = !quote.isFavorite;
   const { text, author, isFavorite } = quote;
-  toggleFavoriteBtnIcon(quote.isFavorite, favoriteBtn);
+  toggleFavoriteBtnIcon(isFavorite, btn);
 
   if (isFavorite) {
-    showFavoriteCard(text, author, favoritesContainer);
+    showFavoriteCard(text, author, container);
   } else {
     hideFavoriteCard(text);
   }
