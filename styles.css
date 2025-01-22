@@ -27,7 +27,7 @@ h1 {
 
 /* Текст цитаты */
 #quote {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin: 20px 0;
   color: #b3b3b3; /* Нейтральный оттенок для текста */
   transition: opacity 0.3s ease; /* Плавное изменение */
@@ -37,7 +37,6 @@ h1 {
 .btn {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #bb86fc; /* Цвет кнопки в стиле тёмной темы */
   color: #121212; /* Чёрный текст на светлой кнопке */
   border: none;
   cursor: pointer;
@@ -45,8 +44,23 @@ h1 {
   transition: background-color 0.3s ease; /* Плавный переход цвета */
 }
 
+.btn-primary {
+  background-color: #bb86fc; /* Цвет кнопки в стиле тёмной темы */
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+}
+
 .btn:hover {
   background-color: #9b67e1; /* Чуть темнее при наведении */
+}
+
+.btn-delete:hover {
+  background-color: darkred;
+  color: white;
 }
 
 .quote {
@@ -70,12 +84,23 @@ h1 {
 }
 
 .favorite-card {
+  display: flex;
+  flex-direction: column;
   background-color: #f0f0f0;
   color: #1e1e1e;
   padding: 10px 20px;
   margin: 10px;
   border-radius: 8px;
   width: 25%;
+}
+
+.favorite-card-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.favorite-card button {
+  margin-top: auto;
 }
 
 .author {

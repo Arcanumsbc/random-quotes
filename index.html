@@ -4,21 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Quotes</title>
-    <link rel="stylesheet"
+    <link crossorigin="anonymous"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"/>
+          referrerpolicy="no-referrer"
+          rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <h1>Random Quotes</h1>
-      <p id="quote" class="quote">Click the button to get a random text</p>
-      <p id="quote-author" class="quote-author"></p>
-      <button id="generate-btn" class="btn">Generate Quote</button>
-      <i class="fa-regular fa-star star-icon" id="favorite-btn" aria-hidden="true"></i>
-<!--      <span id="toggle-favorite-btn" id="toggle-favorite-btn"></span>-->
-      <!--<button id="toggle-favorite-btn" class="btn">Add to favorites</button>-->
+      <div id="quote">
+        <p id="quote-text" class="quote">Click the button to get a random
+          text</p>
+        <p id="quote-author" class="quote-author"></p>
+        <button id="generate-btn" class="btn btn-primary">Generate Quote</button>
+        <i class="fa-regular fa-star star-icon" id="favorite-btn" aria-hidden="true"></i>
+      </div>
     </div>
 
     <div class="favorites-container" id="favorites-container">
