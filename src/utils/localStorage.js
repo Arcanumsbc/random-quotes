@@ -1,4 +1,4 @@
-function loacalStorageSetItem(key, value) {
+function localStorageSetItem(key, value) {
   if (typeof key !== 'string') {
     console.error('Error: Key must be a string.');
     return
@@ -11,7 +11,7 @@ function loacalStorageSetItem(key, value) {
   }
 }
 
-function loacalStorageGetItem(key) {
+function localStorageGetItem(key) {
   try {
     const value = localStorage.getItem(key);
     try {
@@ -25,12 +25,12 @@ function loacalStorageGetItem(key) {
   }
 }
 
-function loacalStorageRemoveItem(key) {
+function localStorageRemoveItem(key) {
   localStorage.removeItem(key);
 }
 
-function loacalStorageClear() {
+function localStorageClear() {
   localStorage.clear();
 }
 
-export { loacalStorageSetItem, loacalStorageGetItem, loacalStorageRemoveItem, loacalStorageClear };
+export { localStorageSetItem, localStorageGetItem, localStorageRemoveItem, localStorageClear };
