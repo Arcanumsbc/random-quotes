@@ -1,47 +1,35 @@
-import { favoriteBtn } from "../../index.js";
+import { quoteFavoriteBtn, removeFavoriteQuote } from "../../index.js";
 
-function toggleFavorite(quote, setCurrentQuote, btn, container) {
-  const shouldToggleIsFavorite = true;
-  setCurrentQuote(quote, shouldToggleIsFavorite);
-  toggleFavoriteBtnIcon(quote.isFavorite, btn);
+function toggleFavoriteCard(quote, container) {
+  quote.isFavorite ? showFavoriteCard(quote, container) : removeFavoriteCard(quote.id);
+}
 
-  if (quote.isFavorite) {
-    showFavoriteCard(quote, setCurrentQuote, container);
+function updateFavoriteButton(isFavorite) {
+  const btn = quoteFavoriteBtn;
+
+  if (typeof isFavorite === 'boolean') {
+    // Режим установки состояния
+    btn.style.display = 'inline-block';
+    if (isFavorite) {
+      btn.classList.replace('fa-regular', 'fa');
+    } else {
+      btn.classList.replace('fa', 'fa-regular');
+    }
   } else {
-    hideFavoriteCard(quote.id);
+    // Режим переключения
+    if (btn.classList.contains('fa')) {
+      btn.classList.replace('fa', 'fa-regular');
+    } else if (btn.classList.contains('fa-regular')) {
+      btn.classList.replace('fa-regular', 'fa');
+    }
   }
-}
-
-function handleFavorite(isFavorite) {
-  showFavoritesBtn()
-  toggleFavoriteBtnIcon(isFavorite);
-}
-
-function toggleFavoriteBtnIcon(isFavorite) {
-  favoriteBtn.classList.toggle('fa', isFavorite);
-  favoriteBtn.classList.toggle('fa-regular', !isFavorite);
-}
-
-function showFavoritesBtn() {
- favoriteBtn.style.display = 'inline-block';
 }
 
 function hideFavoritesBtn() {
-  favoriteBtn.style.display = 'none';
+  quoteFavoriteBtn.style.display = 'none';
 }
 
-function removeFavoriteQuote(quote, setCurrentQuote) {
-  const shouldToggleIsFavorite = true;
-  setCurrentQuote(quote, shouldToggleIsFavorite);
-  hideFavoriteCard(quote.id);
-  const currentQuote = document.querySelector(`[data-current-quote-id]`);
-  const currentQuoteId = currentQuote.dataset.currentQuoteId;
-  if (quote.id === currentQuoteId) {
-    toggleFavoriteBtnIcon(quote.isFavorite);
-  }
-}
-
-function showFavoriteCard(quote, setCurrentQuote, container) {
+function showFavoriteCard(quote, container) {
   const { id, text, author } = quote;
   const favoriteCard = document.createElement('div');
   favoriteCard.classList.add('favorite-card');
@@ -55,15 +43,15 @@ function showFavoriteCard(quote, setCurrentQuote, container) {
     `;
   container.appendChild(favoriteCard);
 
-  const deleteButton = favoriteCard.querySelector('.btn-delete');
-  deleteButton.addEventListener('click',() => removeFavoriteQuote(quote, setCurrentQuote))
+  const removeButton = favoriteCard.querySelector('.btn-delete');
+  removeButton.addEventListener('click',() => removeFavoriteQuote(id))
 }
 
-function hideFavoriteCard(id) {
+function removeFavoriteCard(id) {
   const card = document.querySelector(`[data-quote-id="${id}"]`);
   if (card) {
     card.remove();
   }
 }
 
-export { handleFavorite, toggleFavorite, hideFavoritesBtn, showFavoriteCard };
+export { toggleFavoriteCard, hideFavoritesBtn, showFavoriteCard, removeFavoriteCard, updateFavoriteButton };
